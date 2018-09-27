@@ -37,21 +37,10 @@ urlpatterns = [
     url(r'^ip_ilo_list/$', login_required(views.IPlist_ILO.as_view()), name='ip_ilo_list'),
     url(r'^ip_public_list/$', login_required(views.IPlist_Public.as_view()), name='ip_public_list'),
     url(r'^ip_servers_list/$', login_required(views.IPlist_Servers.as_view()), name='ip_servers_list'),
-    url(r'^ip_stations_list/$', login_required(views.IPlist_Stations.as_view()), name='ip_stations_list'),
     url(r'^ip_netdevs_list/$', login_required(views.IPlist_Netdevs.as_view()), name='ip_netdevs_list'),
-    #Stations Reports views
-    url(r'^stations_sept_receivers/$', login_required(views.Stations_Sept_Receivers.as_view()), name='stations_sept_receivers'),
-    url(r'^stations_trimble_receivers/$', login_required(views.Stations_Trimble_Receivers.as_view()), name='stations_trimble_receivers'),
-    url(r'^stations_sept_antennas/$', login_required(views.Stations_Sept_Antennas.as_view()), name='stations_sept_antennas'),
-    url(r'^stations_trimble_antennas/$', login_required(views.Stations_Trimble_Antennas.as_view()), name='stations_trimble_antennas'),
-    url(r'^stations_firmware/$', login_required(views.Stations_Firmware.as_view()), name='stations_firmware'),
-    url(r'^stations_radome_antennas/$', login_required(views.Stations_Radome_Antennas.as_view()), name='stations_radome_antennas'),
-    url(r'^stations_decomissioned/$', login_required(views.Stations_Decomissioned.as_view()), name='stations_decomissioned'),
-    url(r'^stations_g4/$', login_required(views.Stations_G4.as_view()), name='stations_g4'),
-    url(r'^stations_gras/$', login_required(views.Stations_GRAS.as_view()), name='stations_gras'),
+   
     #Apps views
     url(r'^netdev/', include('netdev.urls')),
-    url(r'^station/', include('station.urls')),
     url(r'^company/', include('company.urls')),
     url(r'^server/', include('server.urls')),
     url(r'^vserver/', include('vserver.urls')),
