@@ -14,5 +14,5 @@ To dump the db.script to fill the DB for the testing:
 Check that the symlinks for prod or dev are correct, we have 3:
 - Dockerfile
 - docker-compose.yml
-- fugromgr/settings.py
+- inetrecomgr/settings.py
 

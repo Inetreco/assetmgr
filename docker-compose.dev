@@ -9,15 +9,15 @@ services:
         depends_on:
             - db
         ports:
-            - 9200:9200
-            - 9300:9300
+            - 9400:9400
+            - 9500:9500
     web:
         build: .
         ports:
-            - "8000:8000"
+            - "9000:9000"
         volumes:
             - .:/app/
         depends_on:
             - db
             - elastic
-        command: bash -c "./wait.sh db && python manage.py makemigrations && python manage.py migrate && sleep 5 &&python manage.py rebuild_index --noinput && python manage.py runserver 0.0.0.0:8000"
+        command: bash -c "./wait.sh db && python manage.py makemigrations && python manage.py migrate && sleep 5 &&python manage.py rebuild_index --noinput && python manage.py runserver 0.0.0.0:9000"

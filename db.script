@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-#User.objects.create_superuser(username='admin', password='Welcome987', email='mamedxanli@gmail.com')
+User.objects.create_superuser(username='admin', password='Welcome987', email='mamedxanli@gmail.com')
 
 from company.models import Company
 c10 = Company(name="C10", address="Street 10", phone="10346589", contact_person="Person 10", email="person10@gmail.com", pk=10)
@@ -323,18 +323,6 @@ nd50.save()
 nd51.save()
 nd52.save()
 
-
-from station.models import Station
-s11 = Station(warranty="02.2022", manufacture_year="2016", ip_v4_address_public="3.3.3.3", pk=11, owner=c61, hostname="001", location="Baku", site_name="Baku site", decomissioned=False, g4=True, gras=True, antenna_brand = "SEPTENTRIO", antenna_type="TRM55971.00", antenna_sn="SJSJSJSSJ01", has_radome=True, receiver_brand="SEPTENTRIO", receiver_type="POLARX5", receiver_sn="IYGTRFFD01", created_by='admin', company_asset_number="A21S01", ip_v4_address="10.0.3.1", site_router_ip=nd1, internet_connection_type="fiber", bandwidth="5Mbps/5Mbps", site_contact="Contact 1", other="Some remark", os="Firmware 1",)
-s12 = Station(warranty="02.2022", manufacture_year="2016", ip_v4_address_public="3.3.3.3", pk=12, owner=c60, hostname="002", location="Baku", site_name="Baku site", decomissioned=True, g4=False, gras=True, antenna_brand = "SEPTENTRIO", antenna_type="TRM57971.00", antenna_sn="SJSJSJSSJ02", has_radome=False, receiver_brand="SEPTENTRIO", receiver_type="POLARX5", receiver_sn="IYGTRFFD02", created_by='admin', company_asset_number="A21S02", ip_v4_address="10.0.4.2", site_router_ip=nd5, internet_connection_type="fiber", bandwidth="15Mbps/15Mbps", site_contact="Contact 2", other="Some remark", os="Firmware 1",)
-s13 = Station(warranty="01.2023", manufacture_year="2017", ip_v4_address_public="3.3.3.3", pk=13, owner=c13, hostname="003", location="Baku", site_name="Baku site", decomissioned=False, g4=True, gras=False, antenna_brand = "SEPTENTRIO", antenna_type="SEPCHOKE_B3E6", antenna_sn="SJSJSJSSJ03", has_radome=True, receiver_brand="SEPTENTRIO", receiver_type="POLARX5", receiver_sn="IYGTRFFD03", created_by='admin', company_asset_number="A21S03", ip_v4_address="10.0.5.3", site_router_ip=nd20, internet_connection_type="ADSL", bandwidth="2Mbps/0.5Mbps", site_contact="Contact 3", other="Some remark", os="Firmware 1",)
-s14 = Station(warranty="01.2024", manufacture_year="2008", ip_v4_address_public="3.3.3.3", pk=14, owner=c14, hostname="004", location="Baku", site_name="Baku site", decomissioned=False, g4=True, gras=True, antenna_brand = "TRIMBLE", antenna_type="TRM55971.00", antenna_sn="SJSJSJSSJ04", has_radome=False, receiver_brand="TRIMBLE", receiver_type="NETR9", receiver_sn="IYGTRFFD04", created_by='admin', company_asset_number="A21S04", ip_v4_address="10.0.3.4", site_router_ip=nd42, internet_connection_type="fiber", bandwidth="10Mbps/10Mbps", site_contact="Contact 4", other="Some remark", os="Firmware 1",)
-s15 = Station(warranty="07.2025", manufacture_year="2012", ip_v4_address_public="3.3.3.3", pk=15, owner=c25, hostname="005", location="Baku", site_name="Baku site", decomissioned=False, g4=True, gras=True, antenna_brand = "TRIMBLE", antenna_type="TRM57971.00", antenna_sn="SJSJSJSSJ05", has_radome=True, receiver_brand="TRIMBLE", receiver_type="NETR5", receiver_sn="IYGTRFFD05", created_by='admin', company_asset_number="A21S05", ip_v4_address="10.0.3.5", site_router_ip=nd51, internet_connection_type="VDSL", bandwidth="5Mbps/2Mbps", site_contact="Contact 5", other="Some remark", os="Firmware 1",)
-s11.save()
-s12.save()
-s13.save()
-s14.save()
-s15.save()
 
 from vserver.models import Vserver
 vserver1 = Vserver(hostname="vServer1", owner="Frode", os="CentOS", decomissioned=False, created_by='admin', hypervisor=srv1, server_cpu="8 cores", server_ram="4 GB", local_storage="100 GB", current_roles="GRAS Test", ip_v4_address="10.0.50.2", ip_v4_address_public="None", ip_v6_address="IPv6", other="This is a VM")
