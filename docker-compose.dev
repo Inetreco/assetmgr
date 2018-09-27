@@ -1,0 +1,23 @@
+version: '3'
+services:
+    db:
+        image: "postgres:9.6"
+    elastic:
+        #Haystack doesnt support the newer versions yet
+        #image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+        image: elasticsearch:2.4.0
+        depends_on:
+            - db
+        ports:
+            - 9200:9200
+            - 9300:9300
+    web:
+        build: .
+        ports:
+            - "8000:8000"
+        volumes:
+            - .:/app/
+        depends_on:
+            - db
+            - elastic
+        command: bash -c "./wait.sh db && python manage.py makemigrations && python manage.py migrate && sleep 5 &&python manage.py rebuild_index --noinput && python manage.py runserver 0.0.0.0:8000"

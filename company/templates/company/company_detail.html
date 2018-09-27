@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Company | Asset Manager</title>
+{% endblock %}
+
+{% block main %}
+<div class="col-lg-8 col-lg-offset-2">
+    <div class="contact-box center-version">
+        <a href="{{ object.get_absolute_url }}">
+            <h5 class="m-b-xs">Company</h5>
+            <h2 class="m-b-xs"><strong>{{ object.name }}</strong></h2>
+            <p>Click to edit</p>
+        </a>
+        <div class="ibox-content float-e-margins text-center">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-id-card"></i></h2>
+                                <br>
+                                <h3 class="m-b-xs"><span>Location: </span><span class="text-navy">{{ object.address }}</span></h3>
+                                <h3 class="m-b-xs"><span>Owner: </span><span class="text-navy">{{ object.phone }}</span></h3>
+                                <h3 class="m-b-xs"><span>Site Name: </span><span class="text-navy">{{ object.contact_person }}</span></h3>                                    
+                                <h3 class="m-b-xs"><span>Email: </span><span class="text-navy">{{ object.email }}</span></h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <h4 class="m-b-xs">Inactive</h4>
+                <h2 class="m-b-xs"><strong>{{ object.inactive|yesno:"Yes,No"  }}</strong></h2>
+        </div>
+    </div>
+</div>
+{% endblock %}

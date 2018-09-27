@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>{{ page_title }} | Asset Manager</title>
+{% endblock %}
+
+{% block main %}
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>{{ table_title }}</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" >
+                            <thead>
+                                <tr>
+                                    <th>Device Name</th>
+                                    <th>Role</th>
+                                    <th>Owner</th>
+                                    <th>iLO IPv4 Address</th>
+                                    <th>Server IPv4 Address</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in ip_list %}
+                                    <tr class="gradeX">
+                                        <td><a href="{{ item.get_detail }}">iLO of {{ item.hostname }}</a></td>
+                                        <td>{{ item.current_roles }}</td>
+                                        <td>{{ item.owner }}</td>
+                                        <td>{{ item.ilo_ip_address }}</td>
+                                        <td>{{ item.ip_v4_address }}</td>
+                                        <td class="text-center"><a class="btn btn-primary btn-sm" href="{{ item.get_absolute_url }}">Edit</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% if is_paginated %}
+                            {% include "paginator_foot.html" %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

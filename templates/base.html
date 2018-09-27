@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block title %}
+            <title>Base Template | Asset Manager</title>
+        {% endblock %}
+
+        {% block head %}
+            {% include "head.html" %}
+        {% endblock %}
+    </head>
+
+    <body class="pace-done">
+        {% if user.is_authenticated%}
+        <div id="wrapper">
+            {% block navbar %}
+                {% include "navbar.html" %}
+            {% endblock %}
+
+            <div id="page-wrapper" class="gray-bg">
+                {% block header %}
+                    {% include "header.html" %}
+                {% endblock %}
+
+                {% block messages %}
+                    {% if messages %}
+                    <div class="alert alert-success">
+                        <ul class="margin-bottom-none padding-left-lg">
+                            {% for message in messages %}
+                                <li class="{{ message.tags }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                {% endblock %}
+
+                {% block main %}
+                    <p>This is the base template. You shouldn't be seeing this.</p>
+                {% endblock %}
+
+                {% block footer %}
+                    {% include "footer.html" %}
+                {% endblock %}
+            </div>
+            {% else %}
+                <div class="wrapper gray-bg">
+                    {% block login %}
+                    {% endblock %}
+                </div>
+            {% endif %}
+            {% block foot %}
+                {% include "foot.html" %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  <title>Delete Station | Asset Manager</title>
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h4>Delete station</h4>
+            </div>
+            <div class="ibox-content">
+                <form method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    <h3>Deleting cannot be undone, we recomend you to mark it as decomissioned <a href="{{ object.get_absolute_url }}">here</a> instead</h3>
+                    <div class="hr-line-dashed"></div>
+                    <p>Are you sure you want to delete <strong>Name: {{ object.hostname }} - SN: {{ object.receiver_sn }} - IP: {{ object.ip_v4_address }}</strong>.</p>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-5">
+                            <input type=button value="Back" class="btn btn-white" onClick="javascript:history.go(-1);"></input>
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

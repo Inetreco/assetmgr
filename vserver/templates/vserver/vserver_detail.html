@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Server | Asset Manager</title>
+{% endblock %}
+
+{% block main %}
+<div class="col-lg-8 col-lg-offset-2">
+    <div class="contact-box center-version">
+        <a href="{{ object.get_absolute_url }}">
+            <h5 class="m-b-xs">Server</h5>
+            <h2 class="m-b-xs"><strong>{{ object.hostname }}</strong></h2>
+            <p>Click to edit</p>
+        </a>
+        <div class="ibox-content float-e-margins text-center">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-microchip"></i></h2>
+                                <h3 class="m-b-xs"><span>Hostname: </span><span class="text-navy">{{ object.hostname }}</span></h3>
+                                <h3 class="m-b-xs"><span>OS: </span><span class="text-navy">{{ object.os }}</span></h3>
+                                <h3 class="m-b-xs"><span>CPU: </span><span class="text-navy">{{ object.server_cpu }}</span></h3>
+                                <h3 class="m-b-xs"><span>RAM: </span><span class="text-navy">{{ object.server_ram }}</span></h3>
+                                <h3 class="m-b-xs"><span>Storage: </span><span class="text-navy">{{ object.local_storage }}</span></h3>
+                                <div class="hr-line-dashed"></div>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-sitemap"></i></h1>
+                                <h3 class="m-b-xs"><span>IPv4 Address: </span><span class="text-navy">{{ object.ip_v4_address }}</span></h3>
+                                <h3 class="m-b-xs"><span>Public IPv4 Address: </span><span class="text-navy">{{ object.ip_v4_address_public }}</span></h3>
+                                <h3 class="m-b-xs"><span>IPv6 Address: </span><span class="text-navy">{{ object.ip_v6_address }}</span></h3>
+                            </td>
+                            <td>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-id-card"></i></h2>
+                                <br>
+                                <h3 class="m-b-xs"><span>Hypervisor: </span><span class="text-navy">{{ object.hypervisor }}</span></h3>
+                                <h3 class="m-b-xs"><span>Owner/User/Admin: </span><span class="text-navy">{{ object.owner }}</span></h3>
+                                <h3 class="m-b-xs"><span>Current Role: </span><span class="text-navy">{{ object.current_roles }}</span></h3>
+                                <br>
+                                {% if object.file_other %}
+                                    <h3 class="m-b-xs"><span>Other files: </span><span class="text-navy"><a href="{{ object.file_other.url }}" download>Download</a></span></h3>
+                                {% endif %}
+                                <br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <h2 class="m-b-xs">Remarks</h2>
+                <h3 class="m-b-xs">{{ object.other }}</h3>
+                <div class="hr-line-dashed"></div>
+                <h4 class="m-b-xs">Decomissioned</h4>
+                <h2 class="m-b-xs"><strong>{{ object.decomissioned|yesno:"Yes,No"  }}</strong></h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!-- Core JS -->
+<!-- Here you can load the javascripts like the example 
+<script type="text/javascript" src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+-->
+<!-- Mainly scripts -->
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+<script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="{% static 'js/inspinia.js' %}"></script>
+<script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+
+<!-- Datetime picker scripts -->
+<script src="{% static 'js/fullcalendar/moment.min.js' %}"></script>
+<script src="{% static 'js/fullcalendar/datetimepicker.min.js' %}"></script>
+
+<!-- Initialize datetime picker script -->
+<script>
+    $(function () {
+        $('.datetime-input').datetimepicker({
+            format:'YYYY-MM-DD'
+        });
+    });
+</script>
+<!--
+<p>This is the foot. </p>
+<p>javascripts to be loaded here</p>
+-->

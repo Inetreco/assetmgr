@@ -1,0 +1,110 @@
+{% load staticfiles %}
+<nav class="navbar-default navbar-static-side " role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu sticky-top" id="side-menu" style="">
+            <li class="nav-header">
+                <div class="dropdown profile-element"> <span>
+                    <img alt="image" class="img" src="{% static 'fugro_logo.logo' %}">
+                        </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ user.username }}</strong>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    <img alt="image" class="img" src="{% static 'fugro_logo.logo' %}">
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'haystack_search' %}"><i class="fa fa-search"></i> <span class="nav-label">Search</span></a>
+            </li>
+            <li class="active">
+                <a href="#"><i class="fa fa-plus"></i> <span class="nav-label">Add / Create</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'server_create' %}">Add Server</a></li>
+                    <li><a href="{% url 'netdev_create' %}">Add Network Device</a></li>
+                    <li><a href="{% url 'station_create' %}">Add Station</a></li>
+                    <li><a href="{% url 'company_create' %}">Add Company</a></li>
+                    <li><a href="{% url 'vserver_create' %}">Add vServer</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="#">IP Reports <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse">
+                            <li><a href="{% url 'ip_servers_list' %}">Servers IPs</a></li>
+                            <li><a href="{% url 'ip_stations_list' %}">Stations IPs</a></li>
+                            <li><a href="{% url 'ip_netdevs_list' %}">Network Devices IPs</a></li>
+                            <li><a href="{% url 'ip_ilo_list' %}">iLO IPs</a></li>
+                            <li><a href="{% url 'ip_public_list' %}">Public IPs</a></li>
+                            <li><a href="{% url 'ip_used_list' %}">All IPs in use</a></li>
+                            <li><a href="{% url 'ip_decomissioned_list' %}">Decomissioned IPs</a></li>
+                            <li><a href="{% url 'ip_all_list' %}">All IPs</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Stations Reports <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level collapse">
+                                <li><a href="{% url 'stations_sept_receivers' %}">Septentrio Receivers</a></li>
+                                <li><a href="{% url 'stations_trimble_receivers' %}">Trimble Receivers</a></li>
+                                <li><a href="{% url 'stations_sept_antennas' %}">Septentrio Antennas</a></li>
+                                <li><a href="{% url 'stations_trimble_antennas' %}">Trimble Antennas</a></li>
+                                <li><a href="{% url 'stations_g4' %}">G4 stations</a></li>
+                                <li><a href="{% url 'stations_gras' %}">GRAS stations</a></li>
+                                <li><a href="{% url 'stations_firmware' %}">Firmware status</a></li>
+                                <li><a href="{% url 'stations_radome_antennas' %}">Antennas with radome</a></li>
+                                <li><a href="{% url 'stations_decomissioned' %}">Decomissioned stations</a></li>
+                            </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Servers</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'server_create' %}">Add server</a></li>
+                    <li><a href="{% url 'server_list' %}">Server List / Edit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-codepen"></i> <span class="nav-label">vServers</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'vserver_create' %}">Add vServer</a></li>
+                    <li><a href="{% url 'vserver_list' %}">vServer List / Edit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Network Devices</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'netdev_create' %}">Add device</a></li>
+                    <li><a href="{% url 'netdev_list' %}">Device List / Edit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wpexplorer"></i> <span class="nav-label">Stations</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'station_create' %}">Add station</a></li>
+                    <li><a href="{% url 'station_list' %}">Station List / Edit</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Companies</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'company_create' %}">Add company</a></li>
+                    <li><a href="{% url 'company_list' %}">Company List / Edit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="https://no.reporting.gnss.fugro/grafana/">Oslo Grafana</a></li>
+                    <li><a href="https://www.fugro-delex.com/confluence/display/FCG">Confluence</a></li>
+                    <li><a href="https://mail.fugro.com">Web Outlook</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

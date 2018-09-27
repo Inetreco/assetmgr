@@ -1,0 +1,9 @@
+Django==2.0.6
+psycopg2-binary
+#For search functionality
+django-haystack
+elasticsearch==2.4.1
+#For files cleanup
+django-cleanup
+# Webserver for docker to be used by nginx
+gunicorn

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  <title>Update company | Asset Manager</title>
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Update Company</h5>
+                <div class="ibox-tools text-navy">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    {% for item in form %}
+                        <div class="form-group"><label class="col-sm-5 control-label">{{ item.label }}</label>
+                            <div class="col-sm-4">{{ item }}</div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-5">
+                            <input type=button value="Back" class="btn btn-white" onClick="javascript:history.go(-1);"></input>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

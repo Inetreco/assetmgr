@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Station | Asset Manager</title>
+{% endblock %}
+
+{% block main %}
+<div class="col-lg-8 col-lg-offset-2">
+    <div class="contact-box center-version">
+        <a href="{{ object.get_absolute_url }}">
+            <h5 class="m-b-xs">Station</h5>
+            <h2 class="m-b-xs"><strong>{{ object.hostname }}</strong></h2>
+            <p>Click to edit</p>
+        </a>
+        <div class="ibox-content float-e-margins text-center">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-wpexplorer"></i></h2>
+                                <h3 class="m-b-xs"><span>Antenna Brand: </span><span class="text-navy">{{ object.antenna_brand }}</span></h3>
+                                <h3 class="m-b-xs"><span>Antenna Type: </span><span class="text-navy">{{ object.antenna_type }}</span></h3>
+                                <h3 class="m-b-xs"><span>Antenna Serial Number: </span><span class="text-navy">{{ object.antenna_sn }}</span></h3>
+                                <h3 class="m-b-xs"><span>Antenna with radome: </span><span class="text-navy">{{ object.has_radome|yesno:"Yes,No" }}</span></h3>
+                                <h3 class="m-b-xs"><span>Firmware: </span><span class="text-navy">{{ object.os }}</span></h3>
+                                <h3 class="m-b-xs"><span>Receiver Brand: </span><span class="text-navy">{{ object.receiver_brand }}</span></h3>
+                                <h3 class="m-b-xs"><span>Receiver Type: </span><span class="text-navy">{{ object.receiver_type }}</span></h3>
+                                <h3 class="m-b-xs"><span>Receiver Serial Number: </span><span class="text-navy">{{ object.receiver_sn }}</span></h3>
+                                <div class="hr-line-dashed"></div>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-sitemap"></i></h1>
+                                <h3 class="m-b-xs"><span>IPv4 Address: </span><span class="text-navy">{{ object.ip_v4_address }}</span></h3>
+                                <h3 class="m-b-xs"><span>Public IPv4 Address: </span><span class="text-navy">{{ object.ip_v4_address_public }}</span></h3>
+                                <h3 class="m-b-xs"><span>IPv6 Address: </span><span class="text-navy">{{ object.ip_v6_address }}</span></h3>
+                                <h3 class="m-b-xs"><span>Site Router IP: </span><span class="text-navy">{{ object.site_router_ip }}</span></h3>
+                                <h3 class="m-b-xs"><span>Bandwidth: </span><span class="text-navy">{{ object.bandwidth }}</span></h3>
+                                <h3 class="m-b-xs"><span>Internet Connection Type: </span><span class="text-navy">{{ object.internet_connection_type }}</span></h3>
+                            </td>
+                            <td>
+                                <h1 class="m-b-xs"><i class="icon-custom fa fa-id-card"></i></h2>
+                                <br>
+                                <h3 class="m-b-xs"><span>Location: </span><span class="text-navy">{{ object.location }}</span></h3>
+                                <h3 class="m-b-xs"><span>Owner: </span><span class="text-navy">{{ object.owner }}</span></h3>
+                                <h3 class="m-b-xs"><span>Site Name: </span><span class="text-navy">{{ object.site_name }}</span></h3>
+                                <br>
+                                <h3 class="m-b-xs"><span>Warranty: </span><span class="text-navy">{{ object.warranty }}</span></h3>
+                                <h3 class="m-b-xs"><span>Asset Number: </span><span class="text-navy">{{ object.company_asset_number }}</span></h3>
+                                <h3 class="m-b-xs"><span>G4: </span><span class="text-navy">{{ object.g4|yesno:"Yes,No" }}</span></h3>
+                                <h3 class="m-b-xs"><span>GRAS: </span><span class="text-navy">{{ object.gras|yesno:"Yes,No" }}</span></h3>
+                                <br>
+                                {% if object.file_picture_1 %}
+                                    <h3 class="m-b-xs"><span>Site Diagram</span><span class="text-navy"></span></h3>
+                                    <a href="{{ object.file_picture_1.url }}" download><img src='{{ object.file_picture_1.url}}' height='50' width='50' border='1'/></a>
+                                {% endif %}
+                                {% if object.file_picture_2 %}
+                                    <h3 class="m-b-xs"><span>Antenna Picture</span></h3>
+                                    <a href="{{ object.file_picture_2.url }}" download><img src='{{ object.file_picture_2.url}}' height='50' width='50' border='1'/></a>
+                                {% endif %}
+                                {% if object.file_other %}
+                                    <h3 class="m-b-xs"><span>Other files: </span><span class="text-navy"><a href="{{ object.file_other.url }}" download>Download</a></span></h3>
+                                {% endif %}
+                                <br>
+                                <h3 class="m-b-xs"><span>Site Contact: </span><span class="text-navy">{{ object.site_contact }}</span></h3>
+                                <h3 class="m-b-xs"><span>Manufacture year: </span><span class="text-navy">{{ object.manufacture_year }}</span></h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <h2 class="m-b-xs">Remarks</h2>
+                <h3 class="m-b-xs">{{ object.other }}</h3>
+                <div class="hr-line-dashed"></div>
+                <h4 class="m-b-xs">Decomissioned</h4>
+                <h2 class="m-b-xs"><strong>{{ object.decomissioned|yesno:"Yes,No" }}</strong></h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
